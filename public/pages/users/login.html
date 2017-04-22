@@ -1,0 +1,60 @@
+
+<div class="row text-center">
+    <div class="container">
+        <h2 class="section-heading">User Login</h2>
+        <h3 class="section-subheading text-muted">Please enter your login information.</h3>
+    </div>
+</div>
+<section>
+<form class="form-group" ng-submit="main.doLogin(loginData)">
+	<label for="username">Username</label>
+	<input ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" class="form-control" type="text" name="username"
+	placeholder="Enter a unique username" ng-model="main.loginData.username" required>
+	<br>
+
+	<label for="password">Password</label>
+	<input ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" class="form-control" type="password" name="password"	placeholder="Password" ng-model="main.loginData.password" required>
+	<br>
+	
+	<button ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" type="submit" class="btn btn-primary">Login</button>&nbsp
+	<button ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" type="button" class="btn btn-success" ng-click="main.facebook();">Facebook</button>
+	&nbsp
+	<button ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" type="button" class="btn btn-warning" ng-click="main.twitter();">Twitter</button>
+		&nbsp
+	<button ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" type="button" class="btn btn-info" ng-click="main.google();">Google</button>
+	<div class="pull-right">
+        <a href="/resetpassword">
+            <button ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" type="button" class="btn btn-danger">Forgot Password</button>
+        </a>
+    </div>
+</form>
+
+<br>
+
+
+
+<div class="jumbotron text-center" ng-show="main.loading">
+	<span class="glyphicon glyjicon-repeat spinner"></span>
+	<p>Loading...</p>
+</div> 
+
+<div class="row show-hide-mesage animated slideInDown" ng-show="main.successMsg">
+	<div class="alert alert-success">{{main.successMsg}}</div>
+</div>
+<br>
+<div class="row show-hide-mesage animated slideInDown" ng-show="main.errorMsg">
+	<div class="alert alert-danger">{{main.errorMsg}}&nbsp;<a ng-show="main.expired" href="/resend"><button type="button" class="btn btn-success">Resend Link</button></a></div>
+</div>
+
+<div class="row show-hide-mesage animated slideInDown" ng-show="facebook.errorMsg">
+	<div class="alert alert-danger">{{facebook.errorMsg}}&nbsp;<a ng-show="facebook.expired" href="/resend"><button type="button" class="btn btn-success">Resend Link</button></a></div>
+</div>
+
+<div class="row show-hide-mesage animated slideInDown" ng-show="twitter.errorMsg">
+	<div class="alert alert-danger">{{twitter.errorMsg}}&nbsp;<a ng-show="twitter.expired" href="/resend"><button type="button" class="btn btn-success">Resend Link</button></a></div>
+</div>
+
+<div class="row show-hide-mesage animated slideInDown" ng-show="google.errorMsg">
+	<div class="alert alert-danger">{{google.errorMsg}}&nbsp;<a ng-show="google.expired" href="/resend"><button type="button" class="btn btn-success">Resend Link</button></a></div>
+</div>
+</section>
