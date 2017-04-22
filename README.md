@@ -6,6 +6,13 @@ A MEAN Stack Single Page Application with RESTful API
 
 This application requires installation of NodeJS and MongoDB prior to running.
 
+## Features
+- Implementation of Sendgrid Node Mailer
+- Usage of Facebook, Google and Twitter Apps for Login
+- Email Confirmation & Password Reset Option
+- Custom Validators using regex for frontend and backend validation
+- Responsive and touch supportive UI
+
 
 ## Installation
 
